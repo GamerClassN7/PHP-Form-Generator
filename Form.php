@@ -1,4 +1,7 @@
 <?php
+/**
+* [InputTypes datatype for input types]
+*/
 class InputTypes
 {
 	const TEXT = 'text';
@@ -10,7 +13,9 @@ class InputTypes
 	const DATETIME = 'datetime';
 	const SUBMIT = 'submit';
 }
-
+/**
+* [Form Form Generator Class]
+*/
 class Form {
 
 	public $formContent = "";
@@ -19,7 +24,14 @@ class Form {
 	private $method;
 	private $action;
 
-	function __construct( $name, $id, $method, $action) {
+	/**
+	 * [__construct description]
+	 * @param String $name   [description]
+	 * @param String $id     [description]
+	 * @param String $method [description]
+	 * @param String $action [description]
+	 */
+	function __construct(String $name, String $id, String $method, String $action) {
 		if ($name != "") {
 			$this->formName = 'name="'.$name.'"';
 		}
@@ -33,8 +45,16 @@ class Form {
 			$this->$action = 'action="'.$action.'"';
 		}
 	}
-
-	function addInput($type, $name, $id, $label, $value, $enabled = true){
+	/**
+	 * [addInput description]
+	 * @param String     $type    Type of input element (text, number, color,checkbox, button, date, datetime, submit)
+	 * @param String     $name    name of element
+	 * @param String     $id      id of element
+	 * @param String     $label   label of element
+	 * @param String     $value   value of element
+	 * @param boolean    $enabled enable selector toggle
+	 */
+	function addInput(String $type, String $name, String $id, String $label, String $value, Bool $enabled = true){
 		$this->formContent .= '<div class="field">';
 		if ($label != "") {
 			$this->formContent .= '<div class="label">'.$label.'</div>';
@@ -44,7 +64,16 @@ class Form {
 	}
 
 	//TODO: add Group support
-	function addSelect($name, $id, $label, $data, $multiple = false, $enabled = true){
+	/**
+	 * [addSelect description]
+	 * @param String  $name     name of element
+	 * @param String  $id       id of element
+	 * @param String  $label    label of element
+	 * @param Array   $data     array of options [value => valueName]
+	 * @param boolean $multiple multiple selector toggle
+	 * @param boolean $enabled  enable selector toggle
+	 */
+	function addSelect(String $name, String $id, String $label, Array $data, Bool $multiple = false, Bool $enabled = true){
 		$this->formContent .= '<div class="field">';
 		if ($label != "") {
 			$this->formContent .= '<div class="label">'.$label.'</div>';
@@ -57,6 +86,9 @@ class Form {
 		$this->formContent .= '</div>';
 	}
 
+	/**
+	 * [render function whitch dysplay generated form]
+	 */
 	function render(){
 		self::addInput(InputTypes::SUBMIT, 'formSubmit', '', 'Submit', 'Submit');
 		$form = '<form '.$this->formName.$this->formId.$this->method.$this->action.'">';
