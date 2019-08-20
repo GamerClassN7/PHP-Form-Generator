@@ -1,6 +1,6 @@
 ## PHP_FORM_GENERATOR
 
-Simple php class for generation oh HTML forms
+Simple php class for generation of HTML forms
 
 # Example
 ```PHP
