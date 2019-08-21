@@ -12,6 +12,7 @@ class InputTypes
 	const DATE = 'date';
 	const DATETIME = 'datetime';
 	const SUBMIT = 'submit';
+	const HIDEN = 'hidden';
 }
 /**
 * [Form Form Generator Class]
