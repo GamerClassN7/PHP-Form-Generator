@@ -87,6 +87,25 @@ class Form {
 	}
 
 	/**
+	 * [addTextarea description]
+	 * @param String     $name     name of element
+	 * @param String     $id       id of element
+	 * @param String     $label    label of element
+	 * @param String     $value   value of element
+	 * @param boolean    $enabled enable selector toggle
+	 */
+	function addTextarea(String $name, String $id, String $label, Array $value, Bool $enabled = true){
+		$this->formContent .= '<div class="field">';
+		if ($label != "") {
+			$this->formContent .= '<div class="label">'.$label.'</div>';
+		}
+		$this->formContent .= '<textarea class="input"'  . ($enabled ? '' : 'disabled') . '>';
+		$this->formContent .= $value;
+		$this->formContent .= '</textarea>';
+		$this->formContent .= '</div>';
+	}
+
+	/**
 	 * [render function whitch dysplay generated form]
 	 */
 	function render(){
