@@ -13,6 +13,7 @@ class InputTypes
 	const DATETIME = 'datetime';
 	const SUBMIT = 'submit';
 	const HIDEN = 'hidden';
+	const EMAIL = 'email';
 }
 /**
 * [Form Form Generator Class]
